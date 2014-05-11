@@ -1,5 +1,6 @@
 package Solutions;
 import Common.TreeNode;
+import java.util.*;
 
 public class BinaryTreeProblems {
 	
@@ -45,9 +46,24 @@ public class BinaryTreeProblems {
 
 	}
 	
+	public ArrayList<Integer> preorderTraversal (TreeNode root)
+	{
+		ArrayList<Integer> allElements = new ArrayList<Integer>();
+		if (root != null)
+		{
+			allElements.add(root.val);
+			ArrayList<Integer> leftElements = preorderTraversal(root.left);
+			ArrayList<Integer> rightElements = preorderTraversal(root.right);
+			allElements.addAll(leftElements);
+			allElements.addAll(rightElements);
+		}
+		return allElements;
+		
+	}
+	
 	public void Test()
 	{
-		/*
+
 		TreeNode t1 = new TreeNode(23);
 		TreeNode t2 = new TreeNode(12);
 		TreeNode t3 = new TreeNode(24);
@@ -57,10 +73,9 @@ public class BinaryTreeProblems {
 		t1.right = t3;
 		t2.left = t4;
 		t3.right = t5;
-		*/
 		
-		int c8 = numTrees(8);
-		System.out.println(c8);
+		ArrayList<Integer> aB = preorderTraversal(t1);
+		System.out.println(aB);
 		
 	}
 }
