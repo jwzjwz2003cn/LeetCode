@@ -1,0 +1,28 @@
+package eclipsePackage;
+
+public class LinearSystem {
+	
+	/*
+	 * matrix[0][0- = a
+	 */
+	public double[] Solve (double[][] A, double [] b)
+	{
+		double [] xy = new double[2];
+		
+		double a,b,c,d;
+		a = A[0][0];
+		b = A[0][1];
+		c = A[1][0];
+		d = A[1][1];
+		
+		double invDet = 1/(a*d-b*c);
+		double [][] inverse = new double[2][2];
+		inverse[0][0] = d/invDet;
+		inverse[0][1] = -b/invDet;
+		inverse[1][0] = -c/invDet;
+		inverse[1][1] = -d/invDet;
+		
+		return xy;
+	}
+
+}

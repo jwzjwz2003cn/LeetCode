@@ -1,0 +1,18 @@
+{
+  "/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/classes.jar": {
+    "coordinate": "jre:jre:zip:call:1.0.0",
+    "location": "/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/classes.jar",
+    "status": "RESOLVED",
+    "error": "No class path info available for \u0027/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/classes.jar\u0027. Skipped."
+  },
+  "/Users/Frank/Development/workspace/LeetCodeProblems/src": {
+    "location": "/Users/Frank/Development/workspace/LeetCodeProblems/src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027/Users/Frank/Development/workspace/LeetCodeProblems/src\u0027. Skipped."
+  },
+  "/Users/Frank/Development/workspace/HelloWord/src": {
+    "location": "/Users/Frank/Development/workspace/HelloWord/src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027/Users/Frank/Development/workspace/HelloWord/src\u0027. Skipped."
+  }
+}

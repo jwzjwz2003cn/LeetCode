@@ -1,0 +1,24 @@
+package Solutions;
+import Common.ListNode;
+public class LinkedList {
+	public boolean hasCycle(ListNode head){
+		if (head == null)
+			return false;
+		ListNode fastNode = head;
+		ListNode slowNode = head;
+		int i = 0;
+		while(fastNode.next != null)
+		{
+			fastNode = fastNode.next.next;
+			slowNode = slowNode.next;
+			if (fastNode == fastNode)
+			{
+				return true;
+			}
+		}
+		return false;	
+	}
+	
+	
+
+}

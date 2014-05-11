@@ -1,0 +1,21 @@
+package Solutions;
+import Common.TreeNode;
+
+public class BinaryTreeProblems {
+	
+	public int maxDepth(TreeNode root)
+	{
+		if (root == null)
+			return 0;
+		int left = maxDepth(root.left);
+		int right = maxDepth(root.right);
+		return (left > right)? left+1:right+1;
+		
+	}
+	
+	public void Test()
+	{
+		TreeNode t1 = new TreeNode(23);
+		
+	}
+}

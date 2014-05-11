@@ -1,0 +1,23 @@
+package Solutions;
+
+public class ReverseInteger {
+
+	public int reverse(int x)
+	{
+		int newInt = 0;
+		int intLength;
+		String strX = Integer.toString(x);
+		char[] arrayX = strX.toCharArray();
+		if (x < 0)
+			intLength = arrayX.length -1;
+		else
+			intLength = arrayX.length;
+		for (int i = 0; i<intLength; i++)
+		{
+			newInt = newInt + Character.getNumericValue(arrayX[intLength-i-1]) * 10^(intLength-i-1);
+		}
+		if (x < 0)
+			newInt = newInt * -1;
+		return newInt;
+	}
+}

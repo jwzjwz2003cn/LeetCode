@@ -1,0 +1,13 @@
+package eclipsePackage;
+
+public class LinearSystem {
+	
+	public double[2] (double[][] matrix)
+	{
+		double [] xy = new double [2];
+		
+		
+		return xy;
+	}
+
+}

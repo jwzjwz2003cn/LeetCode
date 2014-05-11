@@ -1,0 +1,51 @@
+package eclipsePackage;
+
+public class LinearSystem {
+	
+	/*
+	 * matrix[0][0- = a
+	 */
+	public double[] Solve (double[][] A, double [] B)
+	{
+		double [] xy = new double[2];
+		
+		double a,b,c,d;
+		a = A[0][0];
+		b = A[0][1];
+		c = A[1][0];
+		d = A[1][1];
+		
+		double i, j;
+		i = B[0];
+		j = B[1];
+		
+		double invDet = 1/(a*d-b*c);
+		double ia, ib, ic, id;
+		ia = d/invDet;
+		ib = -b/invDet;
+		ic = -c/invDet;
+		id = -d/invDet;
+		
+		double x = ia*i + ib*j;
+		double y = ic*i + id*j;
+		
+		xy[0] = x;
+		xy[1] = y;
+		return xy;
+	}
+	
+	public String display(double[][] A, double [] B)
+	{
+		String result = String.format("|%d %d| |x| = |%d|\n|%d %d| |y|   |%d|", A[0][0], A[0][1], B[0], A[1][0], A[1][1], B[1]);
+		return result;
+	}
+
+	public void Test()
+	{
+		double [][] A = {{2, 3}, {3, 4}};
+		double [] B = {5,6};
+		
+		double [] xy = Solve(A, B);
+		System.out.println("The solution is x = "+xy[0]+" y = " + xy[1]);
+	}
+}
