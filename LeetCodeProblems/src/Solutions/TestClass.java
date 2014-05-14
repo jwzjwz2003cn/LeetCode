@@ -4,8 +4,8 @@ public class TestClass {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		LinkedList ll = new LinkedList();
-		ll.test();
+		LinkedList list = new LinkedList();
+		list.test();
 	}
 
 }

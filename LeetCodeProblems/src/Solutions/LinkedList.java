@@ -82,12 +82,39 @@ public class LinkedList {
 		return head;
 	}
 	
+	public ListNode deleteDuplicates(ListNode head)
+	{
+		if (head == null)
+			return null;
+		if (head.next == null)
+			return head;
+		head.next = deleteDuplicates(head.next);
+		if (head.val == head.next.val)
+			return head.next;
+		else
+			return head;			
+	}
+	
+	public void printList(ListNode head)
+	{
+		String s = "";
+		ListNode node = head;
+		while (node != null)
+		{
+			s = s.concat(Integer.toString(node.val));
+			s = s.concat(" ");
+			node = node.next;
+		}
+		System.out.println(s);
+	}
+	
 	public void test()
 	{
-		int[] intArray = {0,1,2,3,4};
-		ListNode head = createList(intArray, 2);
-		ListNode cycleHead = detectCycle(head);
-		System.out.println(cycleHead.val);
+		int[] intArray = {0,0,0,1,1,1};
+		ListNode head = createList(intArray,8);
+		ListNode newHead = deleteDuplicates(head);
+		printList(head);
+		printList(newHead);
 	}
 	
 

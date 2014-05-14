@@ -61,20 +61,46 @@ public class BinaryTreeProblems {
 		
 	}
 	
+	public ArrayList<Integer> inorderTraversal (TreeNode root){
+		ArrayList<Integer> allElements = new ArrayList<Integer>();
+		if (root != null)
+		{
+			ArrayList<Integer> leftElements = inorderTraversal(root.left);
+			allElements.addAll(leftElements);
+			allElements.add(root.val);
+			ArrayList<Integer> rightElements = inorderTraversal(root.right);
+			allElements.addAll(rightElements);
+		}
+		return allElements;
+	}
+	
+	
 	public void Test()
 	{
-
-		TreeNode t1 = new TreeNode(23);
-		TreeNode t2 = new TreeNode(12);
-		TreeNode t3 = new TreeNode(24);
-		TreeNode t4 = new TreeNode(6);
-		TreeNode t5 = new TreeNode(25);
-		t1.left = t2;
-		t1.right = t3;
-		t2.left = t4;
-		t3.right = t5;
+		TreeNode t0 = new TreeNode(0);
+		TreeNode t1 = new TreeNode(1);
+		TreeNode t2 = new TreeNode(2);
+		TreeNode t3 = new TreeNode(3);
+		TreeNode t4 = new TreeNode(4);
+		TreeNode t5 = new TreeNode(5);
+		TreeNode t6 = new TreeNode(6);
+		TreeNode t7 = new TreeNode(7);
+		TreeNode t8 = new TreeNode(8);
+		TreeNode t9 = new TreeNode(9);
+		TreeNode t10 = new TreeNode(10);
 		
-		ArrayList<Integer> aB = preorderTraversal(t1);
+		t7.left = t1;
+		t7.right = t9;
+		t1.left = t0;
+		t1.right = t3;
+		t9.left = t8;
+		t9.right = t10;
+		t3.left = t2;
+		t3.right = t5;
+		t5.left = t4;
+		t5.right = t6;
+		
+		ArrayList<Integer> aB = inorderTraversal(t7);
 		System.out.println(aB);
 		
 	}
