@@ -1,5 +1,7 @@
 package Solutions;
+import Common.TreeLinkNode;
 import Common.TreeNode;
+
 import java.util.*;
 
 public class BinaryTreeProblems {
@@ -74,6 +76,22 @@ public class BinaryTreeProblems {
 		return allElements;
 	}
 	
+	public void connect(TreeLinkNode root)
+	{
+		if (root == null)
+			return;
+		else
+		{
+			if (root.left != null && root.right != null)
+			{
+				root.left.next = root.right;
+				if (root.next != null)
+					root.right.next = root.next.left;
+			}
+			connect(root.left);
+			connect(root.right);
+		}
+	}
 	
 	public void Test()
 	{
