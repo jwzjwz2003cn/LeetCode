@@ -4,8 +4,8 @@ public class TestClass {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		InterLeavingString interleave = new InterLeavingString();
-		interleave.test();
+		PrintSpiral ps = new PrintSpiral();
+		ps.test();
 	}  
 
 }
