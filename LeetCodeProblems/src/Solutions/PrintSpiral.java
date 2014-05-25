@@ -14,21 +14,21 @@ public class PrintSpiral implements ISolution {
 		for (int i = 0; i < msg.length; i++)
 		{
 			int j,k,m,n;
-			for (j = 0; j < msg[i].length-i; j++)
+			for (j = i; j < msg[i].length-i; j++)
 			{
 				printChar(msg[i][j]);
 			}
 			for (k = i+1; k < msg.length-i; k++)
 			{
-				printChar(msg[k][j]);
+				printChar(msg[k][j-1]);
 			}
-			for (m = j-1; m >=0+i; m--)
+			for (m = j-2; m >= 0+i; m--)
 			{
-				printChar(msg[k][m]);
+				printChar(msg[k-1][m]);
 			}
-			for (n = k-1; n >= 0+i; n--)
+			for (n = k-2; n > 0+i; n--)
 			{
-				printChar(msg[n][m]);
+				printChar(msg[n][m+1]);
 			}
 		}
 	}
@@ -36,7 +36,7 @@ public class PrintSpiral implements ISolution {
 	@Override
 	public void test() {
 		// TODO Auto-generated method stub
-		char[][] table = {{'H', 'A', 'V'}, {'E', 'A', 'N'}, {'I', 'C', 'E'}, {'D','A','Y'}};
+		char[][] table = {{'H', 'A', 'V'}, {'D', 'A', 'E'}, {'E', 'Y', 'A'}, {'C','I','N'}};
 		printSpiral(table);
 	}
 
