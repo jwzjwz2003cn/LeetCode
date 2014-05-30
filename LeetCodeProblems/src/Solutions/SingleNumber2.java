@@ -19,7 +19,7 @@ public class SingleNumber2 implements ISolution {
 			}
 			if (sum[i] %3 != 0)
 			{
-				singleNumber += (sum[i]%3 << i);
+				singleNumber += (sum[i] % 3 << i);
 			}
 		}
 		
