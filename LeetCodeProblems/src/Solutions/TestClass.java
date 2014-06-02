@@ -4,8 +4,8 @@ public class TestClass {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		RomanToInteger rti = new RomanToInteger();
-		rti.test();
+		BinaryTreeProblems btp = new BinaryTreeProblems();
+		btp.Test();
 	}  
 
 }

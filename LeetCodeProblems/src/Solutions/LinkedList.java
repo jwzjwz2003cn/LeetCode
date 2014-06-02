@@ -1,5 +1,6 @@
 package Solutions;
 import Common.ListNode;
+import Common.Utility;
 public class LinkedList {
 	public boolean hasCycle(ListNode head){
 		if (head == null)
@@ -114,7 +115,7 @@ public class LinkedList {
 		ListNode head = createList(intArray,8);
 		ListNode newHead = deleteDuplicates(head);
 		printList(head);
-		printList(newHead);
+		Utility.printList(newHead);
 	}
 	
 

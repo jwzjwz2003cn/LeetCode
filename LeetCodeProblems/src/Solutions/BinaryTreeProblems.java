@@ -76,6 +76,28 @@ public class BinaryTreeProblems {
 		return allElements;
 	}
 	
+	public boolean isBalanced(TreeNode root){
+		if (root == null)
+			return true;
+		if (Math.abs(maxDepth(root.left)-maxDepth(root.right))>1)
+			return false;
+		else
+			return isBalanced(root.left) && isBalanced(root.right);
+	}
+	
+	public TreeNode sortedArrayToBST(int[] num){
+		if (num.length == 0)
+			return null;
+		int midIndex = (num.length)/2;
+		TreeNode root = new TreeNode(num[midIndex]);
+		if (num.length > 1)
+		{
+		    root.left = sortedArrayToBST(Arrays.copyOfRange(num, 0, midIndex));
+		    root.right = sortedArrayToBST(Arrays.copyOfRange(num, midIndex+1, num.length));		    
+		}
+		return root;
+	}
+	
 	public void connect(TreeLinkNode root)
 	{
 		if (root == null)
@@ -95,31 +117,13 @@ public class BinaryTreeProblems {
 	
 	public void Test()
 	{
-		TreeNode t0 = new TreeNode(0);
-		TreeNode t1 = new TreeNode(1);
-		TreeNode t2 = new TreeNode(2);
-		TreeNode t3 = new TreeNode(3);
-		TreeNode t4 = new TreeNode(4);
-		TreeNode t5 = new TreeNode(5);
-		TreeNode t6 = new TreeNode(6);
-		TreeNode t7 = new TreeNode(7);
-		TreeNode t8 = new TreeNode(8);
-		TreeNode t9 = new TreeNode(9);
-		TreeNode t10 = new TreeNode(10);
+		int[] num = {1,2};
 		
-		t7.left = t1;
-		t7.right = t9;
-		t1.left = t0;
-		t1.right = t3;
-		t9.left = t8;
-		t9.right = t10;
-		t3.left = t2;
-		t3.right = t5;
-		t5.left = t4;
-		t5.right = t6;
-		
-		ArrayList<Integer> aB = inorderTraversal(t7);
-		System.out.println(aB);
-		
+		TreeNode root = sortedArrayToBST(num);
+		ArrayList<Integer> al = preorderTraversal(root);
+		for (Integer i: al)
+		{
+			System.out.println(i);
+		}
 	}
 }
