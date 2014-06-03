@@ -4,8 +4,8 @@ public class TestClass {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		BinaryTreeProblems btp = new BinaryTreeProblems();
-		btp.Test();
+		GrayCode gc = new GrayCode();
+		gc.test();
 	}  
 
 }

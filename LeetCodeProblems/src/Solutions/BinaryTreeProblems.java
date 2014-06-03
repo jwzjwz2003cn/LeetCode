@@ -76,6 +76,29 @@ public class BinaryTreeProblems {
 		return allElements;
 	}
 	
+	public ArrayList<String> inorderTraversalString (TreeNode root){
+		ArrayList<String> allElements = new ArrayList<String>();
+		if (root != null)
+		{
+			if (!(root.left == null && root.right == null))
+			{
+				ArrayList<String> leftElements = inorderTraversalString(root.left);
+				ArrayList<String> rightElements = inorderTraversalString(root.right);
+				allElements.addAll(leftElements);
+				allElements.add(Integer.toString(root.val));
+				allElements.addAll(rightElements);				
+			}
+			else
+				allElements.add(Integer.toString(root.val));
+
+		}
+		else
+		{
+			allElements.add("#");
+		}
+		return allElements;
+	}
+	
 	public boolean isBalanced(TreeNode root){
 		if (root == null)
 			return true;
@@ -115,15 +138,71 @@ public class BinaryTreeProblems {
 		}
 	}
 	
+    public boolean isSymmetric(TreeNode root) {
+        if (root == null)
+            return true;
+		ArrayList<String> nodesList = inorderTraversalString(root);
+		boolean retVal = true;
+		for (int i = 0; i < nodesList.size(); i++)
+		{
+			retVal = (nodesList.get(i).equals(nodesList.get(nodesList.size()-1-i)));
+			if (!retVal)
+				break;
+		}
+		return retVal;
+	}        
+	
+    public boolean isSymmetricNew(TreeNode root){
+    	if (root == null)
+    		return true;
+    	
+    	return isSymmetricLR(root.left, root.right);
+    }
+    
+    public boolean isSymmetricLR(TreeNode a, TreeNode b){
+    	if (a == null && b == null)
+    		return true;
+    	if (a == null || b == null)
+    		return false;
+    	if (a.val != b.val)
+    		return false;
+    	return isSymmetricLR(a.left, b.right) && isSymmetricLR(a.right, b.left);
+    }
+    
 	public void Test()
 	{
-		int[] num = {1,2};
+		/*
+		TreeNode t1 = new TreeNode(1);
+		TreeNode t2l = new TreeNode(2);
+		TreeNode t3r = new TreeNode(3);
+		TreeNode t3l = new TreeNode(3);
+		TreeNode t2r = new TreeNode(2);
 		
-		TreeNode root = sortedArrayToBST(num);
-		ArrayList<Integer> al = preorderTraversal(root);
-		for (Integer i: al)
-		{
-			System.out.println(i);
-		}
+		t1.left = t2l;
+		t1.right = t3r;
+		t2l.left = t3l;
+		t3r.left = t2r;
+		System.out.println(isSymmetric(t1));*/
+		
+		TreeNode t5 = new TreeNode(5);
+		TreeNode t4 = new TreeNode(4);
+		TreeNode t1 = new TreeNode(1);
+		
+		t5.left = t4;
+		t5.right = t1;
+		
+		TreeNode t1r = new TreeNode(1);
+		t4.right = t1r;
+		
+		TreeNode t4r = new TreeNode(4);
+		t1.right = t4r;
+		
+		TreeNode t2l = new TreeNode(2);
+		t1r.left = t2l;
+		
+		TreeNode t2r = new TreeNode(2);
+		t4r.left = t2r;
+		
+		System.out.println(isSymmetricNew(t5));
 	}
 }

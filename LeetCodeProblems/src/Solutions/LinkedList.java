@@ -96,25 +96,23 @@ public class LinkedList {
 			return head;			
 	}
 	
-	public void printList(ListNode head)
-	{
-		String s = "";
-		ListNode node = head;
-		while (node != null)
-		{
-			s = s.concat(Integer.toString(node.val));
-			s = s.concat(" ");
-			node = node.next;
-		}
-		System.out.println(s);
+	public ListNode swapPairs(ListNode head){
+		if (head == null)
+			return null;
+		if (head.next == null)
+			return head;
+		
+		ListNode newHead = head.next;
+		head.next = swapPairs(newHead.next);
+		newHead.next = head;
+		return newHead;
 	}
 	
 	public void test()
 	{
-		int[] intArray = {0,0,0,1,1,1};
-		ListNode head = createList(intArray,8);
-		ListNode newHead = deleteDuplicates(head);
-		printList(head);
+		int[] intArray = {1,2,3,4};
+		ListNode head = Utility.createList(intArray,8);
+		ListNode newHead = swapPairs(head);
 		Utility.printList(newHead);
 	}
 	
