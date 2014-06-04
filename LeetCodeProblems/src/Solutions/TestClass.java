@@ -4,8 +4,8 @@ public class TestClass {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		GrayCode gc = new GrayCode();
-		gc.test();
+		SortColors solution = new SortColors();
+		solution.test();
 	}  
 
 }
