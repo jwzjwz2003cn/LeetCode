@@ -48,6 +48,19 @@ public class BinaryTreeProblems {
 
 	}
 	
+	public List<Integer> postorderTraversal(TreeNode root){
+		
+		List<Integer> allElements = new ArrayList<Integer>();
+		if (root!= null){
+			List<Integer> leftElements = postorderTraversal(root.left);
+			allElements.addAll(leftElements);
+			List<Integer> rightElements = postorderTraversal(root.right);
+			allElements.addAll(rightElements);		
+			allElements.add(root.val);
+		}
+		return allElements;
+	}
+	
 	public ArrayList<Integer> preorderTraversal (TreeNode root)
 	{
 		ArrayList<Integer> allElements = new ArrayList<Integer>();
@@ -98,6 +111,34 @@ public class BinaryTreeProblems {
 		}
 		return allElements;
 	}
+	
+    public List<List<Integer>> levelOrder(TreeNode root) {
+    	List<List<Integer>> retList = new ArrayList<List<Integer>>();
+        if (root == null)
+        	return retList;
+        Queue<TreeNode> currentLevel = new PriorityQueue<TreeNode>(); 
+        Queue<TreeNode> nextLevel = new PriorityQueue<TreeNode>();
+        currentLevel.add(root);
+        TreeNode currentNode;
+        List<Integer> levelList = new ArrayList<Integer>();
+        while(!currentLevel.isEmpty()){
+        	currentNode = currentLevel.remove();
+        	if (currentNode.left != null)
+        		nextLevel.add(currentNode.left);
+        	if (currentNode.right != null)
+        		nextLevel.add(currentNode.right);
+        	levelList.add(currentNode.val);
+        	if (currentLevel.isEmpty()){
+                retList.add(levelList);
+                levelList = new ArrayList<Integer>();
+                while(!nextLevel.isEmpty()){
+                	currentLevel.add(nextLevel.remove());
+                }        		
+        	}
+        }
+
+        return retList;
+    }
 	
 	public boolean isBalanced(TreeNode root){
 		if (root == null)
@@ -188,21 +229,13 @@ public class BinaryTreeProblems {
 		TreeNode t4 = new TreeNode(4);
 		TreeNode t1 = new TreeNode(1);
 		
-		t5.left = t4;
-		t5.right = t1;
+		t5.right = t4;
+		t4.left = t1;
 		
-		TreeNode t1r = new TreeNode(1);
-		t4.right = t1r;
+		List<List<Integer>> al = levelOrder(t5);
 		
-		TreeNode t4r = new TreeNode(4);
-		t1.right = t4r;
-		
-		TreeNode t2l = new TreeNode(2);
-		t1r.left = t2l;
-		
-		TreeNode t2r = new TreeNode(2);
-		t4r.left = t2r;
-		
-		System.out.println(isSymmetricNew(t5));
+		for (List<Integer> i: al){
+			System.out.println(i);
+		}
 	}
 }

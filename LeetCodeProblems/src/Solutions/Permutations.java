@@ -54,20 +54,17 @@ public class Permutations implements ISolution {
 			retList.add(finalSingleList);
 			return;
 		}
-		int lastVisited = num[0];
 		
 		for (int i = 0; i < num.length; i++){
+			if (i > 0 && num[i] == num[i-1] && !visited[i-1])
+				continue;
 			if (!visited[i]){
-				if (i > 0 && num[i] == lastVisited){
-					continue;
-				}
 				visited[i] = true;
 				singleList.add(num[i]);
 				permuteUniqueDFS(num, visited, retList, singleList);
 				
 				visited[i] = false;
-				singleList.remove(new Integer(num[i]));
-				lastVisited = num[i];
+				singleList.remove(singleList.size()-1);
 			}
 		}
 	}
@@ -76,7 +73,7 @@ public class Permutations implements ISolution {
 	public void test() {
 		// TODO Auto-generated method stub
 		
-		int[] num = {1,1};
+		int[] num = {2,2,1,1};
 		List<List<Integer>> a = permuteUnique(num);
 		for (List<Integer> al: a){
 			System.out.println(al);
