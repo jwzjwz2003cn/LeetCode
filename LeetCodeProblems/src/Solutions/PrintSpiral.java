@@ -1,43 +1,94 @@
 package Solutions;
+import java.util.*;
 
 public class PrintSpiral implements ISolution {
 
-	public void printChar(char c)
-	{
-		System.out.println(c);
-	}
 	
-	public void printSpiral(char[][] msg)
+	public List<Integer> printSpiral(int[][] matrix)
 	{
-		if (msg.length == 0)
-			return;
-		for (int i = 0; i < msg.length; i++)
+		List<Integer> retList = new ArrayList<Integer>();
+		if (matrix.length == 0)
+			return retList;
+		
+		int layers = Math.min(matrix.length, matrix[0].length);
+		layers = layers/2 + layers%2;
+		for (int i = 0; i < layers; i++)
 		{
 			int j,k,m,n;
-			for (j = i; j < msg[i].length-i; j++)
+			
+			if (matrix[i].length-2 * i == 1)
 			{
-				printChar(msg[i][j]);
+				for (int x = i; x < matrix.length-i; x++){
+					retList.add(matrix[x][i]);
+				}
+				return retList;				
 			}
-			for (k = i+1; k < msg.length-i; k++)
-			{
-				printChar(msg[k][j-1]);
+			
+			if (matrix.length - 2 * i == 1){
+				for (int y = i; y < matrix[i].length-i; y++){
+					retList.add(matrix[i][y]);
+				}
+				return retList;				
 			}
-			for (m = j-2; m >= 0+i; m--)
+			
+			
+			for (j = i; j < matrix[i].length-i-1; j++)
 			{
-				printChar(msg[k-1][m]);
+				retList.add(matrix[i][j]);
 			}
-			for (n = k-2; n > 0+i; n--)
+			for (k = i; k < matrix.length-i-1; k++)
 			{
-				printChar(msg[n][m+1]);
+				retList.add(matrix[k][j]);
+			}
+			for (m = j; m > i; m--) 
+			{
+				retList.add(matrix[k][m]);
+			}
+			for (n = k; n > i; n--)
+			{
+				retList.add(matrix[n][m]);
 			}
 		}
+		return retList; 
 	}
+	
+    public int[][] generateMatrix(int n) {
+    	int[][] retMat = new int[n][n];
+    	int counter = 1;
+    	if (n == 0)
+    		return retMat;
+    	int layers = n/2 + n%2;
+    	for (int i = 0; i < layers; i++){
+    		if ((n-2*i) == 1){
+    			for (int s = i; s < n-i; s++){
+    				retMat[s][s] = counter++;
+    			}
+    		}
+    		int j,k,x,y;
+    		for ( j = i; j < n-i-1; j++){
+    			retMat [i][j] = counter++;
+    		}
+    		for (k = i; k < n-i-1 ; k++){
+    			retMat [k][j] = counter++;
+    		}
+    		for (x = j; x > i; x--){
+    			retMat[k][x] = counter++;
+    		}
+    		for (y = k; y > i; y--){
+    			retMat[y][x] = counter++;
+    		}
+    	}
+    	return retMat;
+    }
 	
 	@Override
 	public void test() {
 		// TODO Auto-generated method stub
-		char[][] table = {{'H', 'A', 'V'}, {'D', 'A', 'E'}, {'E', 'Y', 'A'}, {'C','I','N'}};
-		printSpiral(table);
+		int[][] table = generateMatrix(4);
+		List<Integer> iList = printSpiral(table);
+		for (Integer i: iList){
+			System.out.println(i);
+		}
 	}
 
 }
