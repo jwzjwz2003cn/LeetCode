@@ -16,6 +16,40 @@ public class BinaryTreeProblems {
 		
 	}
 	
+	public int minDepth(TreeNode root){
+/**
+ *  use level order traversal
+ *  	For the first node in the queue has null left and null right, return the Depth
+ */
+		if (root == null){
+			return 0;
+		}
+		int depth = 1;
+		Queue<TreeNode> currentLvl = new ArrayDeque<TreeNode>();
+		Queue<TreeNode> nextLvl = new ArrayDeque<TreeNode>();
+		
+		currentLvl.add(root);
+		
+		while(!currentLvl.isEmpty()){
+			TreeNode currentNode = currentLvl.remove();
+			if(currentNode.left == null && currentNode.right == null)
+				break;
+			if (currentNode.left != null){
+				nextLvl.add(currentNode.left);
+			}
+			if (currentNode.right != null){
+				nextLvl.add(currentNode.right);
+			}
+			if (currentLvl.isEmpty()){
+				while(!nextLvl.isEmpty()){
+					currentLvl.add(nextLvl.remove());
+				}
+				depth+=1;
+			}
+		}
+		return depth;
+	}
+	
 	public boolean isSameTree(TreeNode p, TreeNode q)
 	{
 		if (p == null && q == null)
@@ -116,8 +150,8 @@ public class BinaryTreeProblems {
     	List<List<Integer>> retList = new ArrayList<List<Integer>>();
         if (root == null)
         	return retList;
-        Queue<TreeNode> currentLevel = new PriorityQueue<TreeNode>(); 
-        Queue<TreeNode> nextLevel = new PriorityQueue<TreeNode>();
+        Queue<TreeNode> currentLevel = new ArrayDeque<TreeNode>(); 
+        Queue<TreeNode> nextLevel = new ArrayDeque<TreeNode>();
         currentLevel.add(root);
         TreeNode currentNode;
         List<Integer> levelList = new ArrayList<Integer>();
@@ -210,32 +244,20 @@ public class BinaryTreeProblems {
     	return isSymmetricLR(a.left, b.right) && isSymmetricLR(a.right, b.left);
     }
     
-	public void Test()
+	public void test()
 	{
-		/*
-		TreeNode t1 = new TreeNode(1);
-		TreeNode t2l = new TreeNode(2);
-		TreeNode t3r = new TreeNode(3);
-		TreeNode t3l = new TreeNode(3);
-		TreeNode t2r = new TreeNode(2);
+		TreeNode n6 = new TreeNode(6);
+		TreeNode n5 = new TreeNode(5);
+		TreeNode n3 = new TreeNode(3);
+		TreeNode n2 = new TreeNode(2);
+		TreeNode n1 = new TreeNode(1);
 		
-		t1.left = t2l;
-		t1.right = t3r;
-		t2l.left = t3l;
-		t3r.left = t2r;
-		System.out.println(isSymmetric(t1));*/
+		n6.left = n5;
+		n6.right = n3;
 		
-		TreeNode t5 = new TreeNode(5);
-		TreeNode t4 = new TreeNode(4);
-		TreeNode t1 = new TreeNode(1);
+		n5.left = n2;
+		n5.right = n1;
 		
-		t5.right = t4;
-		t4.left = t1;
-		
-		List<List<Integer>> al = levelOrder(t5);
-		
-		for (List<Integer> i: al){
-			System.out.println(i);
-		}
+		System.out.println(minDepth(n6));
 	}
 }

@@ -9,7 +9,7 @@ public class SetMatrixZeros implements ISolution {
     	boolean firstRowZero = false;
     	boolean firstColZero = false;
     	/**
-    	 * Need to flag whether matrix[i][0] are meant for row zeroes or column zeroes
+    	 * Need to flag whether matrix[0][0] are meant for row zeroes or column zeroes
     	 */
     	for (int i = 0; i < m; i++){
     		for (int j = 0; j < n; j++){
