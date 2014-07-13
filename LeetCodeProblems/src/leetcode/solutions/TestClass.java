@@ -4,7 +4,7 @@ public class TestClass {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		LengthLastWord solution = new LengthLastWord();
+		RemoveFromEndOfList solution = new RemoveFromEndOfList();
 		solution.test();
 	}
 

@@ -196,23 +196,6 @@ public class BinaryTreeProblems {
 		return root;
 	}
 	
-	public void connect(TreeLinkNode root)
-	{
-		if (root == null)
-			return;
-		else
-		{
-			if (root.left != null && root.right != null)
-			{
-				root.left.next = root.right;
-				if (root.next != null)
-					root.right.next = root.next.left;
-			}
-			connect(root.left);
-			connect(root.right);
-		}
-	}
-	
     public boolean isSymmetric(TreeNode root) {
         if (root == null)
             return true;

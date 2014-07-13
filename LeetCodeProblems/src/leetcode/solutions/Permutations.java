@@ -15,6 +15,20 @@ public class Permutations implements ISolution {
 		
 	}
 	
+	/**
+	 * 
+	 * @param num
+	 * @param visited
+	 * @param retList
+	 * @param singleList
+	 * 
+	 *  - Key thoughts and facts:
+	 *  	use DFS
+	 *  	use boolean visited[] to keep track for visited members
+	 *  	use a singleList to keep track currentlist and return when its size grow to the desired size
+	 *  	
+	 */
+	
 	public void permuteDFS(int[] num, boolean [] visited, ArrayList<ArrayList<Integer>> retList, ArrayList<Integer> singleList){
 		
 		if (singleList.size() == num.length){
