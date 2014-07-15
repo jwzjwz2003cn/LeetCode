@@ -9,23 +9,29 @@ public class RemoveFromEndOfList implements ISolution {
 		/**
 		 *  - Use two pointers, one start n steps before the second one
 		 *  When leading pointer reaching the last node, assign the second.next to the leading pointer to skip the nth from end node
+		 *  
 		 */
 		if (n == 0 || head == null)
 			return head;
 		else
 		{
 			ListNode leadPointer = head;
-			ListNode trailPointer = head;
+			ListNode trailPointer = null;
 			int count = 1;
 			while(leadPointer.next != null){
 				leadPointer = leadPointer.next;
-				if (count <= n){
+				if (count < n){
 					count += 1;
-				}else{
+				}
+				else if (count == n){
+					count +=1;
+					trailPointer = head;
+				}
+				else{
 					trailPointer = trailPointer.next;
 				}
 			}
-			if (trailPointer == head){
+			if (trailPointer == null){
 				return head.next;
 			}
 			trailPointer.next = trailPointer.next.next;
@@ -36,7 +42,7 @@ public class RemoveFromEndOfList implements ISolution {
 	@Override
 	public void test() {
 		// TODO Auto-generated method stub
-		int[] numArray = {1,2};
+		int[] numArray = {1,2,3};
 		ListNode head = Utility.createList(numArray, 10);
 		ListNode newHead = removeNthFromEnd(head, 1);
 		Utility.printList(newHead);

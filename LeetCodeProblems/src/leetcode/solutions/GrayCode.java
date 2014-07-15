@@ -2,6 +2,15 @@ package leetcode.solutions;
 import java.util.*;
 public class GrayCode implements ISolution {
 
+	/**
+	 * 
+	 * @param n
+	 * @return
+	 * 
+	 *  - Gary Code for n  {0xxx , 1xxx} xxx is the members of n-1
+	 *  - 0xxx is the same value of xxx,
+	 *  - 1xxx are 1<<(n-1)
+	 */
 	
 	public List<Integer> grayCode(int n){
 		
