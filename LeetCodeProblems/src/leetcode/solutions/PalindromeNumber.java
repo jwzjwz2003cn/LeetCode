@@ -12,11 +12,11 @@ public class PalindromeNumber implements ISolution {
 		}
 		int div = 1;
 		while (x/div >= 10){
-			div *= 10;
+			div *= 10;			//find divisor to get the first digits is the key
 		}
 		while (x != 0){
 			int left = x / div;
-			int right = x % 10;
+			int right = x % 10;     
 			if (left != right)
 				return false;
 			x = (x % div) / 10;   // remove the leading digits and then the last digits

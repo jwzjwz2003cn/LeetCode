@@ -12,7 +12,7 @@ public class BinaryTreeProblems {
 			return 0;
 		int left = maxDepth(root.left);
 		int right = maxDepth(root.right);
-		return (left > right)? left+1:right+1;
+		return Math.max(left+1, right+1);
 		
 	}
 	
@@ -50,6 +50,15 @@ public class BinaryTreeProblems {
 		return depth;
 	}
 	
+	/**
+	 * 1. check if any of the 2 are null
+	 * 2. check if they have the same value
+	 * 3. check if they have same left and same right
+	 * 
+	 * @param p
+	 * @param q
+	 * @return
+	 */
 	public boolean isSameTree(TreeNode p, TreeNode q)
 	{
 		if (p == null && q == null)
@@ -65,6 +74,8 @@ public class BinaryTreeProblems {
 		}
 
 	}
+	
+	
 	
 	public int numTrees(int n)
 	{
