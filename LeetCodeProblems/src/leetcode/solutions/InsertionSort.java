@@ -4,16 +4,15 @@ public class InsertionSort {
 
 	public int[] insertionSort(int[] a)
 	{
-		
-		for (int i = 1; i < a.length; i++)
+		for (int i = 1; i < a.length; i++) //start from index 1, so we have index 0 to compare with
 		{
-			int temp = a[i];
+			int temp = a[i]; //make a back up
 			int j;
-			for (j = i ; j > 0 && a[j-1] > temp; j--)
+			for (j = i ; j > 0 && a[j-1] > temp; j--) // compare with previous index
 			{
-				a[j] = a[j-1];
+				a[j] = a[j-1]; //shift larger number to the right
 			}
-			a[j] = temp;
+			a[j] = temp; // retrieve the comparing the number from back up
 		}
 		return a;
 	}

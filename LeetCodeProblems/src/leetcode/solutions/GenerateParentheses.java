@@ -5,6 +5,10 @@ public class GenerateParentheses implements ISolution {
 
 	public List<String> generateParenthesis(int n){
 	
+		/**
+		 * - Maintain a pastList to store prevoius generated list
+		 * - list(n) = '('+')' on each of list(k) + list(n-1-k) k:[0, n-1]
+		 */
     	List<List<String>> pastLists = new ArrayList<List<String>>();
     	for (int i = 0; i <= n; i++){
     		List<String> list = new ArrayList<String>();
