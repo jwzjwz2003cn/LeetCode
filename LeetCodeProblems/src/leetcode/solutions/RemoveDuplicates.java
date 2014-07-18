@@ -2,7 +2,24 @@ package leetcode.solutions;
 
 public class RemoveDuplicates implements ISolution {
 
+	/**
+	 * Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.
+
+		Do not allocate extra space for another array, you must do this in place with constant memory.
+
+		For example,
+		Given input array A = [1,1,2],
+
+		Your function should return length = 2, and A is now [1,2].
+
+	 * @param A
+	 * @return
+	 */
 	public int removeDuplicates(int[] A){
+		/** 
+		 *  use a second index pointer, while i increase for ever iteration, j only increase when j-1 != i
+		 *  
+		 */
 		
 		if (A.length < 2)
 			return A.length;

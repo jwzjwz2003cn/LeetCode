@@ -2,6 +2,13 @@ package leetcode.solutions;
 
 public class ReverseInteger {
 
+	/**
+	 * - Convert to string 
+	 * - string to character array
+	 * - get the numerical value by reversing the array 
+	 * @param x
+	 * @return
+	 */
 	public int Reverse(int x)
 	{
 		int newInt = 0;
