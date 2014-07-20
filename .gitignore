@@ -1,5 +1,5 @@
 #ignore .metadata and all files in the folder
-.metadata/
+./.metadata/
 
 #ignore bin
 LeetCodeProblems/bin/
