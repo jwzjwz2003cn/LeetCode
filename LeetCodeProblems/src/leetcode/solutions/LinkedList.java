@@ -2,6 +2,13 @@ package leetcode.solutions;
 import leetcode.common.ListNode;
 import leetcode.common.Utility;
 public class LinkedList {
+	
+	/**
+	 * - use a fastNode and slowNode to 
+	 * - if fast ever catch slowNode, then it's cyclic
+	 * @param head
+	 * @return
+	 */
 	public boolean hasCycle(ListNode head){
 		if (head == null)
 			return false;

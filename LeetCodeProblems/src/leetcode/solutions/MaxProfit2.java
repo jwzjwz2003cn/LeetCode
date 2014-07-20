@@ -4,6 +4,11 @@ public class MaxProfit2 implements ISolution {
 
 	public int maxProfit(int[] prices){
 		
+		/**
+		 *   - keep track of the minimum buy price
+		 *   - keep track of max profit
+		 */
+		
 		if (prices.length == 0)
 			return 0;
 		

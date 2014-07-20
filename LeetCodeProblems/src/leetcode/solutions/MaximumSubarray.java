@@ -8,7 +8,7 @@ public class MaximumSubarray implements ISolution {
 		
 		for (int i = 0; i < A.length; i++)
 		{
-			sum = (sum > 0)? sum+A[i]: A[i];
+			sum = (sum > 0)? sum+A[i]: A[i]; //if sum < 0, then A[i] + sum < A[i]
 			max = Math.max(max, sum);
 		}
 		return max;

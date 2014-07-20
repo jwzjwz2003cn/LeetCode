@@ -2,6 +2,13 @@ package leetcode.solutions;
 
 public class MaxProfit {
 	
+	/**
+	 * - check next day's price, if higher than buy, otherwise sell
+	 * use isBought to track buy and sell.
+	 * 
+	 * @param prices
+	 * @return
+	 */
 	public int maxProfit(int[] prices)
 	{
 		boolean isBought = false;

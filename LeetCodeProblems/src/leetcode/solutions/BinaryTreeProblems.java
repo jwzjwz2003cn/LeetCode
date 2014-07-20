@@ -6,13 +6,19 @@ import leetcode.common.TreeNode;
 
 public class BinaryTreeProblems {
 	
+	/**
+	 * 
+	 * compare the max of left+1 and right+1
+	 * @param root
+	 * @return
+	 */
 	public int maxDepth(TreeNode root)
 	{
 		if (root == null)
 			return 0;
 		int left = maxDepth(root.left);
 		int right = maxDepth(root.right);
-		return Math.max(left+1, right+1);
+		return (left > right)? left+1:right+1;
 		
 	}
 	
@@ -50,15 +56,6 @@ public class BinaryTreeProblems {
 		return depth;
 	}
 	
-	/**
-	 * 1. check if any of the 2 are null
-	 * 2. check if they have the same value
-	 * 3. check if they have same left and same right
-	 * 
-	 * @param p
-	 * @param q
-	 * @return
-	 */
 	public boolean isSameTree(TreeNode p, TreeNode q)
 	{
 		if (p == null && q == null)
@@ -74,8 +71,6 @@ public class BinaryTreeProblems {
 		}
 
 	}
-	
-	
 	
 	public int numTrees(int n)
 	{
@@ -93,6 +88,11 @@ public class BinaryTreeProblems {
 
 	}
 	
+	/**
+	 * left -> right -> root
+	 * @param root
+	 * @return
+	 */
 	public List<Integer> postorderTraversal(TreeNode root){
 		
 		List<Integer> allElements = new ArrayList<Integer>();
@@ -105,6 +105,13 @@ public class BinaryTreeProblems {
 		}
 		return allElements;
 	}
+	
+	/**
+	 * root->left->right
+	 * 
+	 * @param root
+	 * @return
+	 */
 	
 	public ArrayList<Integer> preorderTraversal (TreeNode root)
 	{
@@ -121,6 +128,11 @@ public class BinaryTreeProblems {
 		
 	}
 	
+	/**
+	 * left->root->right
+	 * @param root
+	 * @return
+	 */
 	public ArrayList<Integer> inorderTraversal (TreeNode root){
 		ArrayList<Integer> allElements = new ArrayList<Integer>();
 		if (root != null)
@@ -157,6 +169,12 @@ public class BinaryTreeProblems {
 		return allElements;
 	}
 	
+	/**
+	 * use a currentLeve queue and nextLevel Queue 
+	 * @param root
+	 * @return
+	 */
+	
     public List<List<Integer>> levelOrder(TreeNode root) {
     	List<List<Integer>> retList = new ArrayList<List<Integer>>();
         if (root == null)
@@ -185,6 +203,12 @@ public class BinaryTreeProblems {
         return retList;
     }
 	
+    /**
+     * check if Absolute difference between MaxDepth(left) and MaxDepth(right) <=1
+     * do it recursively for left and right node
+     * @param root
+     * @return
+     */
 	public boolean isBalanced(TreeNode root){
 		if (root == null)
 			return true;
@@ -194,6 +218,13 @@ public class BinaryTreeProblems {
 			return isBalanced(root.left) && isBalanced(root.right);
 	}
 	
+	/**
+	 * Chooses the middle index as the root
+	 * left would be the left side of the array
+	 * right would be the right side of the array
+	 * @param num
+	 * @return
+	 */
 	public TreeNode sortedArrayToBST(int[] num){
 		if (num.length == 0)
 			return null;
@@ -207,6 +238,13 @@ public class BinaryTreeProblems {
 		return root;
 	}
 	
+	
+	/**
+	 * - use inorder travesal to store all the nodes
+	 * - Verify if member i = member size-i-1
+	 * @param root
+	 * @return
+	 */
     public boolean isSymmetric(TreeNode root) {
         if (root == null)
             return true;

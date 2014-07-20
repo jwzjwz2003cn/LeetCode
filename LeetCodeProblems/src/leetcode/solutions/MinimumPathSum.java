@@ -4,15 +4,15 @@ public class MinimumPathSum implements ISolution {
 	
 	public int minPathSum(int[][] grid){
 		/**
-		 *  minPath[x][y] =Min(minPath[x-1][y], minPath[x][y-1])
+		 *  minPath[x][y] =Min(minPath[x-1][y], minPath[x][y-1])+grid[i][j]
 		 */
 		int m = grid.length, n = grid[0].length;
 		if (m == 0 && n == 0)
 			return -1;
 		int[][] minSumMat = new int[m][n];
 		minSumMat[0][0] = grid[0][0];
-		for (int i = 1; i < m; i++){
-			minSumMat[i][0] = minSumMat[i-1][0] + grid[i][0];
+		for (int i = 1; i < m; i++){ 
+			minSumMat[i][0] = minSumMat[i-1][0] + grid[i][0]; 
 		}
 		for (int i = 1; i < n; i++){
 			minSumMat[0][i] = minSumMat[0][i-1] + grid[0][i];

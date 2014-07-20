@@ -4,6 +4,12 @@ import java.util.*;
 public class PrintSpiral implements ISolution {
 
 	
+	/**
+	 * calculate number of layers
+	 * Need to handle when there are only one row or one column to print
+	 * @param matrix
+	 * @return
+	 */
 	public List<Integer> printSpiral(int[][] matrix)
 	{
 		List<Integer> retList = new ArrayList<Integer>();

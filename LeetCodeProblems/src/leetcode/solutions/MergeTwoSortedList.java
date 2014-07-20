@@ -3,7 +3,13 @@ import leetcode.common.ListNode;
 import leetcode.common.Utility;
 public class MergeTwoSortedList implements ISolution {
 
-	
+	/**
+	 *  First decide the head between l1 and l2,
+	 *  then find out the next node recursively using head.next and the other between l1 and l2
+	 * @param l1
+	 * @param l2
+	 * @return
+	 */
 	public ListNode mergeTwoLists(ListNode l1, ListNode l2){
 		
 		if (l1 == null && l2 == null)

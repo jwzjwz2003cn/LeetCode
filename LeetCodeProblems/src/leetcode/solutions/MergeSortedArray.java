@@ -2,6 +2,16 @@ package leetcode.solutions;
 
 public class MergeSortedArray implements ISolution {
 
+	/** 
+	 * Assume A is the size of m+n-1
+	 * merge B into A
+	 * Going from the end of list from both A and B and add one to the end of A
+	 * 
+	 * @param A
+	 * @param m
+	 * @param B
+	 * @param n
+	 */
 	public void merge(int A[], int m, int B[], int n){
 		if (n==0)
 			return;

@@ -2,6 +2,14 @@ package leetcode.solutions;
 import leetcode.common.TreeNode;
 public class PathSum implements ISolution {
 
+	/**
+	 * return true when root is a leaf node and the sum equals to root's value
+	 * recursively to check left and right node
+	 * 
+	 * @param root
+	 * @param sum
+	 * @return
+	 */
     public boolean hasPathSum(TreeNode root, int sum) {
 		if (root == null)
 			return false;
