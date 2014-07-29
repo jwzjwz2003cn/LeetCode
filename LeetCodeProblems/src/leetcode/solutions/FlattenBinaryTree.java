@@ -1,13 +1,17 @@
 package leetcode.solutions;
 
-import java.util.ArrayDeque;
-import java.util.Queue;
-import java.util.Stack;
 
 import leetcode.common.TreeNode;
 
 public class FlattenBinaryTree implements ISolution {
 
+	/**
+	 *  - Need a helper method that returns root node for flatten
+	 *  - flatten left, and then flatten right
+	 *  - use a loop search for the end of left and connect it with the flattened right
+	 * @param root
+	 */
+	
 	public void flatten(TreeNode root){
 		
 		flattenReturnRoot(root);
