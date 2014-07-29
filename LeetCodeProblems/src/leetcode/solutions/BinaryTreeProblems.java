@@ -128,6 +128,19 @@ public class BinaryTreeProblems {
 		
 	}
 	
+	public ArrayList<Integer> preorderIterativeTraversal (TreeNode root){
+		ArrayList<Integer> allElements = new ArrayList<Integer>();
+		Queue<TreeNode> queue = new ArrayDeque<TreeNode>();
+		queue.add(root);
+		while (!queue.isEmpty()){
+			TreeNode currentNode = queue.remove();
+			queue.add(currentNode.left);
+			queue.add(currentNode.right);
+			allElements.add(currentNode.val);
+		}
+		return allElements;
+	}
+	
 	/**
 	 * left->root->right
 	 * @param root
