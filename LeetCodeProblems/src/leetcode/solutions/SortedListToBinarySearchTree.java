@@ -49,7 +49,7 @@ public class SortedListToBinarySearchTree implements ISolution {
 		TreeNode root = sortedListToBST(head);
 		BinaryTreeProblems btp = new BinaryTreeProblems();
 		List<List<Integer>> list = btp.levelOrder(root);
-		for (List l: list){
+		for (List<Integer> l: list){
 			System.out.println(l);
 		}
 	}

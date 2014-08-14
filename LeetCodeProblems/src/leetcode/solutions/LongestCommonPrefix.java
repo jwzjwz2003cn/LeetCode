@@ -21,7 +21,7 @@ public class LongestCommonPrefix implements ISolution {
     		char[] current = strs[i].toCharArray();
     		int count = 0;
     		for ( count = 0; count < lcp.length; count++){
-    			if (count == current.length || lcp[count] != current[count])
+    			if (count == current.length || lcp[count] != current[count]) // need to make sure count doesn't exceed current string length
     				break;
     		}
     		lcp = Arrays.copyOf(lcp, count);
