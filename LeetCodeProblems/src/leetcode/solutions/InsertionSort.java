@@ -2,13 +2,19 @@ package leetcode.solutions;
 
 public class InsertionSort {
 
+	
+	/**
+	 * Worst case O(n^2) Best case O(n), Space complexity O(n)
+	 * @param a
+	 * @return
+	 */
 	public int[] insertionSort(int[] a)
 	{
 		for (int i = 1; i < a.length; i++) //start from index 1, so we have index 0 to compare with
 		{
 			int temp = a[i]; //make a back up
 			int j;
-			for (j = i ; j > 0 && a[j-1] > temp; j--) // compare with previous index
+			for (j = i ; j > 0 && temp < a[j-1]; j--) // compare with previous index
 			{
 				a[j] = a[j-1]; //shift larger number to the right
 			}
