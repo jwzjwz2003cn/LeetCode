@@ -2,8 +2,8 @@ package leetcode.solutions;
 
 public class QuickSort implements ISolution {
 	
-	/**
-	 * 
+	/** Worst Case O(n^2) Average Case O(n log n)
+	 * Worst case space: O(n)
 	 * @param A
 	 * @param start
 	 * @param end

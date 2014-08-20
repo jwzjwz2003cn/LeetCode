@@ -3,6 +3,9 @@ package leetcode.solutions;
 public class MergeSortedArray implements ISolution {
 
 	/** 
+	 * Worst case & Best case O(n log n)
+	 * Worst case space complexity O(n)
+	 * 
 	 * Assume A is the size of m+n-1
 	 * merge B into A
 	 * Going from the end of list from both A and B and add one to the end of A
