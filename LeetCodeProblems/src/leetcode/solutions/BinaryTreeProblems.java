@@ -130,12 +130,14 @@ public class BinaryTreeProblems {
 	
 	public ArrayList<Integer> preorderIterativeTraversal (TreeNode root){
 		ArrayList<Integer> allElements = new ArrayList<Integer>();
-		Queue<TreeNode> queue = new ArrayDeque<TreeNode>();
+		ArrayDeque<TreeNode> queue = new ArrayDeque<TreeNode>();
 		queue.add(root);
 		while (!queue.isEmpty()){
-			TreeNode currentNode = queue.remove();
-			queue.add(currentNode.left);
-			queue.add(currentNode.right);
+			TreeNode currentNode = queue.pop();
+			if (currentNode.right!=null)
+				queue.push(currentNode.right);
+			if (currentNode.left != null)
+				queue.push(currentNode.left);
 			allElements.add(currentNode.val);
 		}
 		return allElements;
@@ -303,6 +305,6 @@ public class BinaryTreeProblems {
 		n5.left = n2;
 		n5.right = n1;
 		
-		System.out.println(minDepth(n6));
+		System.out.println(preorderIterativeTraversal(n6));
 	}
 }
