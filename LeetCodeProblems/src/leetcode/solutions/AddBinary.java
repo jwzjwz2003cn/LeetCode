@@ -18,14 +18,14 @@ public class AddBinary implements ISolution {
 		String result = "";
 		boolean carryOver = false;
 		while (i >= 0 && j >= 0){
-			if ( A[i] == '1' && B[i] == '1'){
+			if ( A[i] == '1' && B[j] == '1'){
 				if (carryOver)
 					result = "1" + result;
 				else
 					result = "0" + result;
 				carryOver = true;
 			}
-			else if (A[i] == '0' && B[i] == 0){
+			else if (A[i] == '0' && B[j] == '0'){
 				if (carryOver)
 					result = "1" + result;
 				else
@@ -42,7 +42,41 @@ public class AddBinary implements ISolution {
 				}
 			}
 			
+			i--;
+			j--;
 		}
+		
+		if (i < 0 && j < 0){
+			if (carryOver)
+				result = "1" + result;
+			return result;
+		}
+		int k = (i >= 0) ? i : j;
+		char[] C = (k == i) ? A : B;
+		while ( k >= 0 ){
+			if (C[k] == '1'){
+				if (carryOver){
+					result = "0" + result;
+					carryOver = true;
+				}
+				else{
+					result = "1" + result;
+					carryOver = false;
+				}
+					
+			}
+			else if (C[k] == '0'){
+				if (carryOver)
+					result = "1" + result;
+				else
+					result = "0" + result;
+				carryOver = false;
+			}
+			k--;
+		}
+		if (carryOver)
+			result = "1" + result;
+		return result;    
 		
 	}
 	
