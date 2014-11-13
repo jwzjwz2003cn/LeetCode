@@ -51,7 +51,6 @@ public class AddBinary implements ISolution {
 				result = "1" + result;
 			return result;
 		}
-
 		int k = (i >= 0) ? i : j;
 		char[] C = (k == i) ? A : B;
 		while ( k >= 0 ){
@@ -77,6 +76,7 @@ public class AddBinary implements ISolution {
 		}
 		if (carryOver)
 			result = "1" + result;
+			
 		return result;
 		
 	}
