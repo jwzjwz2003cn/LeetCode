@@ -4,7 +4,7 @@ public class TestClass {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		AddBinary solution = new AddBinary();
+		ZigZagConversion solution = new ZigZagConversion();
 		solution.test();
 	}
 
