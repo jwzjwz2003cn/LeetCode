@@ -4,8 +4,10 @@ public class TestClass {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Anagrams solution = new Anagrams();
+		
+		RotateArray solution = new RotateArray();
 		solution.test();
+
 	}
 
 }
