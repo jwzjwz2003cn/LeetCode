@@ -28,7 +28,8 @@ public class RotateArray implements ISolution {
 			currentCopy = temp;
 			current = newIndex;		// update current index pointer
 			
-			if (count * k % length == 0){
+			if (count * k % length == 0){  // check for loops in the traversal ( a loop will form when it has traveled 
+										   //multiples of the array's length
 				current += 1; 
 				currentCopy = nums[current];
 			}
@@ -44,7 +45,7 @@ public class RotateArray implements ISolution {
 	public void test() {
 		// TODO Auto-generated method stub
 		int[] nums = {1,2,3,4,5,6};
-		rotate(nums, 2);
+		rotate(nums, 4);
 		for (int i: nums){
 			System.out.print(i + " ");
 		}
