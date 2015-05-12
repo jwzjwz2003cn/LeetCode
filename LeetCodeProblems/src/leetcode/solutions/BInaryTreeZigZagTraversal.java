@@ -4,6 +4,8 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
+import java.util.Queue;
+import java.util.Stack;
 
 import leetcode.common.TreeNode;
 
@@ -11,10 +13,10 @@ public class BInaryTreeZigZagTraversal implements ISolution {
 	
 	/**
 	 * - need a direction boolean value (true = left, false = right)
-	 * - current level deque and next level deque
+	 * - current level queue and next level stack
 	 * - start by adding root to the current and its child the the next
-	 * - Pop or remove all elements from the current (depends on the direction boolean)
-	 * - add the children to next level (always add as a queue)
+	 * - Pop all elements from the current (depends on the direction boolean)
+	 * - add the children to next level depends on the direction (add left then right || add right then left) 
 	 * - when current is empty, assign next to current
 	 * - return when both current and next are empty
 	 * 
@@ -31,35 +33,39 @@ public class BInaryTreeZigZagTraversal implements ISolution {
     	if (root == null)
     		return retList;
     	
-    	Deque<TreeNode> currentLevel = new ArrayDeque<TreeNode>();
-    	Deque<TreeNode> nextLevel = new ArrayDeque<TreeNode>();
+    	Deque<TreeNode> currentLevel = new ArrayDeque<TreeNode>(); //queue
+    	Deque<TreeNode> nextLevel = new ArrayDeque<TreeNode>(); //statck
     	boolean isGoingLeft = false;
     	List<Integer> currentList = new ArrayList<Integer>();
-    	currentLevel.addLast(root);
+    	currentLevel.add(root);
     	
     	while(!currentLevel.isEmpty()){
     		
     		
     		TreeNode current = null;
-    		if(!isGoingLeft){
-    			current = currentLevel.removeFirst();
-    		} else {
-    			current = currentLevel.removeLast();
-    		}
+    		current = currentLevel.remove();
     		
     		if (current != null){
     			currentList.add(current.val);
-    			if (current.left!= null)
-    				nextLevel.addLast(current.left);
-    			if (current.right != null)
-    				nextLevel.addLast(current.right);
+    			if (!isGoingLeft){
+        			if (current.left!= null)
+        				nextLevel.push(current.left);
+        			if (current.right != null)
+        				nextLevel.push(current.right);
+    			} else {
+        			if (current.right!= null)
+        				nextLevel.push(current.right);
+        			if (current.left != null)
+        				nextLevel.push(current.left);
+    			}
+
     		}
 
 			
 			if (currentLevel.isEmpty()){
 				retList.add(currentList);
 				while(!nextLevel.isEmpty()){
-					currentLevel.addLast(nextLevel.pop());
+					currentLevel.add(nextLevel.pop());
 				}
 				currentList = new ArrayList<Integer>();
 				isGoingLeft = !isGoingLeft;
@@ -82,7 +88,7 @@ public class BInaryTreeZigZagTraversal implements ISolution {
 		root.left = left;
 		root.right = right;
 		left.left = leftLeft;
-		right.right = rightRight;
+		left.right = rightRight;
 		
 		List<List<Integer>> list = zigzagLevelOrder(root);
 		System.out.println(list);
