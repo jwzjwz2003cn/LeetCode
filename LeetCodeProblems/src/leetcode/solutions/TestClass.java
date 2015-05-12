@@ -5,7 +5,7 @@ public class TestClass {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		BInaryTreeZigZagTraversal solution = new BInaryTreeZigZagTraversal();
+		ReverseLinkedList solution = new ReverseLinkedList();
 		solution.test();
 
 	}
