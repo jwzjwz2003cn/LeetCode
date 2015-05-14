@@ -5,7 +5,7 @@ public class TestClass {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		HouseRobber solution = new HouseRobber();
+		BinaryTreeRightSideView solution = new BinaryTreeRightSideView();
 		solution.test();
 
 	}
