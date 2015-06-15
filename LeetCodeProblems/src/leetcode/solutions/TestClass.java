@@ -5,7 +5,7 @@ public class TestClass {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		IsomorphicString solution = new IsomorphicString();
+		ThreeSum solution = new ThreeSum();
 		solution.test();
 
 	}
